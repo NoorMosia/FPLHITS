@@ -1,0 +1,19 @@
+.Layout {
+    background-color: aliceblue;
+}
+
+.Navbar {
+    background-color: antiquewhite;
+}
+
+.Main {
+    background: #000;
+}
+
+.Left {
+    background-color: aqua;
+}
+
+.Right {
+    background-color: aquamarine;
+}

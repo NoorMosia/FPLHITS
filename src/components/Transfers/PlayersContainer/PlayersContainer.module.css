@@ -1,0 +1,30 @@
+.PlayersContainer {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.Row {
+    border: 2px solid red;
+    display:flex;
+    width: 96%;
+    margin: 0 auto;
+    justify-content: space-around;
+}
+
+.PlayerColumn {
+    width: 20%;
+    display: flex;
+    /* flex-direction: column; */
+    justify-content: center;
+}
+
+.Row img {
+    display: block;
+    height: 50%;
+}
+
+.PlayerName {
+    background: rgb(112, 112, 112);
+}

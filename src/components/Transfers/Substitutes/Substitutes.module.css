@@ -1,0 +1,22 @@
+.Substitutes {
+    width: 100%;
+    display: flex;
+}
+
+.Row {
+    border: 2px solid red;
+    display:flex;
+    width: 96%;
+    margin: 0 auto;
+    justify-content: space-around;
+}
+
+.PlayerColumn {
+    width: 20%;
+    display: flex;
+    justify-content: center;
+}
+
+.Row img {
+    height: 50%;
+}
