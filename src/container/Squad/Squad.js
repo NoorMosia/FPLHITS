@@ -3,10 +3,10 @@ import * as Styles from "./Transfers.module.css";
 
 import PlayersContainer from "./PlayersContainer/PlayersContainer";
 
-const Transfers = () => {
+const Squad = () => {
     return <div className={Styles.Transfers}>
         <PlayersContainer />
     </div >
 }
 
-export default Transfers;
+export default Squad;

@@ -1,0 +1,7 @@
+.Transfers {
+    width: 100%;
+    display: flex;
+    background-image: url("./half-rotate.png");
+    background-position: top;
+    background-size: cover;
+}

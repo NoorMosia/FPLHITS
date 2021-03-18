@@ -51,7 +51,7 @@ class NavbarPage extends Component {
                                 </MDBNavLink>
                             </MDBNavItem> */}
                             <MDBNavItem>
-                                <MDBNavLink className="waves-effect waves-light" to="#!">
+                                <MDBNavLink className="waves-effect waves-light" to="profile">
                                     Profile <MDBIcon icon="user" />
                                 </MDBNavLink>
                             </MDBNavItem>
