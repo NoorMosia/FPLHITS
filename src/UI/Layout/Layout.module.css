@@ -1,19 +1,33 @@
 .Layout {
-    background-color: aliceblue;
+    min-height: 100vh;
+    width: 100vw;
 }
 
 .Navbar {
-    background-color: antiquewhite;
+    /* min-height: 100px; */
+    margin-bottom: 20px;
 }
 
 .Main {
-    background: #000;
+    /* height: 100vh; */
+    display: flex;
+    max-width: 1080px;
+    margin: 0 auto;
+    border-radius: 2px;
 }
-
+.Buttons {
+    margin: 0 auto;
+    text-align: center;
+}
 .Left {
-    background-color: aqua;
+    width: 70%;
+    margin: 10px;
 }
 
 .Right {
-    background-color: aquamarine;
+    background-color: rgb(27, 27, 27);
+    width: 30%;
+    /* display: none; */
+    flex-grow: 1;
+    margin: 10px;
 }

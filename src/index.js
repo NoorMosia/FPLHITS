@@ -1,8 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
+// import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+
+// MDBReact
+import '@fortawesome/fontawesome-free/css/all.min.css';
+import 'bootstrap-css-only/css/bootstrap.min.css';
+import 'mdbreact/dist/css/mdb.css';
+// more MDBReact - customise
+// import 'mdbreact/dist/css/mdb-free.css';
+// import "./assets/scss/mdb-free.scss";
 
 ReactDOM.render(
   <React.StrictMode>

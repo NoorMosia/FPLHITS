@@ -1,13 +1,11 @@
 import * as Styles from "./App.module.css";
 
-import Transfers from "./components/Transfers/Transfers";
-import Subs from "./components/Transfers/Substitutes/Substitutes";
+import Layout from "./UI/Layout/Layout";
 
 function App() {
   return (
     <div className={Styles.App}>
-      <Transfers />
-      <Subs />
+      <Layout />
     </div>
   );
 }

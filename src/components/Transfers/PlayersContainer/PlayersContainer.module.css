@@ -6,7 +6,7 @@
 }
 
 .Row {
-    border: 2px solid red;
+    /* border: 2px solid red; */
     display:flex;
     width: 96%;
     margin: 0 auto;
@@ -16,15 +16,30 @@
 .PlayerColumn {
     width: 20%;
     display: flex;
-    /* flex-direction: column; */
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
 }
 
 .Row img {
-    display: block;
-    height: 50%;
+    height: 40%;
 }
 
 .PlayerName {
     background: rgb(112, 112, 112);
+}
+
+.TextContainer {
+    color: white;
+    font-weight: 400;
+    text-align: center;
+    width: 120px;
+}
+
+.TextContainer div {
+    background-color: rgb(53, 53, 53);
+    margin-top: 2px;
+    padding: 6px;
+    border-radius: 2px;
+    font-size: 12px;
 }
