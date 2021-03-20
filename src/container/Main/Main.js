@@ -4,6 +4,7 @@ import * as Styles from "./Main.module.css";
 
 import Squad from "../../container/Squad/Squad";
 import Lineup from "../../container/Lineup/Lineup";
+import TransferPane from "../../components/TransferPane/TransferPane";
 
 const Main = props => {
     const [currentPage, setCurrentPage] = useState("lineup");
@@ -26,10 +27,7 @@ const Main = props => {
                 {pageContent}
             </div>
             <div className={Styles.Right}>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
+                <TransferPane />
             </div>
         </div>
     </>

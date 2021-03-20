@@ -1,0 +1,31 @@
+
+.PlayerInfo {
+    padding: 10px 0;
+    border-bottom: 1px solid rgb(228, 228, 228);
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    cursor: pointer;
+}
+
+.ImageContainer {
+    width: 15%;
+    height: 30px;
+    text-align: center;
+}
+
+.ImageContainer img {
+    height: 100%;
+}
+
+.Name {
+    width: 50%;
+}
+
+.Team {
+    width: 15%;
+}
+
+.Price {
+    width: 15%;
+}
