@@ -1,0 +1,16 @@
+Schema
+    User    - id
+            - gwks - array of squad
+
+
+
+colors:
+    light blue - #04f5ff
+    pink - #e90052
+    greeny - #00ff85
+    dark purple - #38003c
+    white
+
+    Darkest - #272f2f
+    Dark - #335f59
+    Light - #8bafa7

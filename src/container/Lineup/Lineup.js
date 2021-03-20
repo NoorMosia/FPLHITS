@@ -1,17 +1,20 @@
 import React from "react";
-
 import Board from "../../components/Board/Board";
 
-const Squad = props => {
+import Subs from "./Substitutes/Substitutes";
+
+const Lineup = () => {
     const players = {
-        GK: ["Martinez", "McCarthy"],
-        DEF: ["Alexander-Arnold", "Dallas", "Taylor", "Dunk", "Veltman"],
+        GK: ["Martinezo"],
+        DEF: ["Alexander-Arnold", "Taylor", "Dunk", "Veltman"],
         MID: ["Salah", "Fernandez", "Son", "Soucek", "Raphinha"],
-        FWD: ["Bamford", "Watkins", "Kane"]
+        FWD: ["Bamford"]
     }
+
     return <>
         <Board players={players} />
+        <Subs />
     </>
 }
 
-export default Squad;
+export default Lineup;

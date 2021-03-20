@@ -3,9 +3,9 @@ import * as Styles from "./Board.module.css";
 
 import PlayersContainer from "./PlayersContainer/PlayersContainer";
 
-const Board = () => {
+const Board = props => {
     return <div className={Styles.Board}>
-        <PlayersContainer />
+        <PlayersContainer players={props.players} />
     </div >
 }
 

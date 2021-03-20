@@ -14,7 +14,7 @@
     color: white;
     font-weight: 500;
     text-align: center;
-    width: 120px;
+    min-width: 120px;
 }
 
 .TextContainer div {
@@ -29,4 +29,27 @@
 .Fixture {
     background-color: rgba(228, 228, 228, 0.808);
     color: black;
+}
+
+
+@media screen and (max-width: 700px) {
+    .PlayerColumn img {
+        width: 50px;
+    }
+    
+    .TextContainer {
+        min-width: 90px;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .TextContainer {
+        min-width: 60px;
+    }
+}
+
+@media screen and (max-width: 350px) {
+    .TextContainer div {
+        font-size: 10px;
+    }
 }

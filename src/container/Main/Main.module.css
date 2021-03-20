@@ -1,0 +1,33 @@
+
+.Main {
+    display: flex;
+    max-width: 1080px;
+    margin: 0 auto;
+    border-radius: 2px;
+}
+.Buttons {
+    margin: 40px 0 20px 0; 
+    text-align: center;
+}
+.Left {
+    width: 70%;
+    margin: 10px;
+}
+
+.Right {
+    background-color: #335f59;
+    width: 30%;
+    flex-grow: 1;
+    margin: 10px;
+}
+
+
+@media screen and (max-width: 969px) {
+    .Right {
+        display: none;
+    }
+    .Left {
+        width: 100%;
+        margin: 0;
+    }
+}

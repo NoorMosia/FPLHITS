@@ -1,6 +1,8 @@
+.Navbar {
+    background: #272f2f;
+}
 .LogoContainer {
-    width: 80px;
-    /* height: 50px; */
+    width: 70px;
 }
 
 .LogoContainer img {

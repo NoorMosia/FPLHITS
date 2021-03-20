@@ -10,7 +10,6 @@ const PlayersContainer = () => {
         <Player playerName="Martinez" fixture="NEW(H)" />
         <Player playerName="Martinez" fixture="NEW(H)" />
     </div>
-
 }
 
 export default PlayersContainer;

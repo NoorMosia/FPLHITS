@@ -4,7 +4,7 @@ import * as Styles from "./Player.module.css";
 const Player = props => {
     return <div className={Styles.PlayerColumn}>
         <img
-            src={`${process.env.PUBLIC_URL}/images/AVLK.png`}
+            src={`${process.env.PUBLIC_URL}/images/LIV.png`}
             alt="pitch"
         />
         <div className={Styles.TextContainer}>

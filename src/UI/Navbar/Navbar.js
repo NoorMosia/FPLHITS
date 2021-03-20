@@ -3,9 +3,8 @@ import * as Styles from "./Navbar.module.css";
 
 import {
     MDBNavbar, MDBNavbarBrand, MDBNavbarNav, MDBNavItem, MDBNavLink, MDBNavbarToggler,
-    MDBCollapse, MDBIcon
+    MDBCollapse
 } from "mdbreact";
-import { BrowserRouter as Router } from 'react-router-dom';
 
 class NavbarPage extends Component {
     state = {
@@ -18,8 +17,8 @@ class NavbarPage extends Component {
 
     render() {
         return (
-            <Router>
-                <MDBNavbar color="black" dark expand="md">
+            <div className={Styles.Navbar}>
+                <MDBNavbar dark expand="md">
                     <MDBNavbarBrand>
                         <div className={Styles.LogoContainer}>
                             <img
@@ -44,21 +43,16 @@ class NavbarPage extends Component {
                                 <MDBNavLink to="/policy">Privacy Policy</MDBNavLink>
                             </MDBNavItem>
                         </MDBNavbarNav>
-                        <MDBNavbarNav right>
-                            {/* <MDBNavItem>
-                                <MDBNavLink className="waves-effect waves-light" to="#!">
-                                    <MDBIcon fab icon="twitter" />
-                                </MDBNavLink>
-                            </MDBNavItem> */}
+                        {/* <MDBNavbarNav right>
                             <MDBNavItem>
                                 <MDBNavLink className="waves-effect waves-light" to="profile">
                                     Profile <MDBIcon icon="user" />
                                 </MDBNavLink>
                             </MDBNavItem>
-                        </MDBNavbarNav>
+                        </MDBNavbarNav> */}
                     </MDBCollapse>
                 </MDBNavbar>
-            </Router>
+            </div>
         );
     }
 }
