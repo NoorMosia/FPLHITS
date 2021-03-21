@@ -6,14 +6,60 @@ import Squad from "../../container/Squad/Squad";
 import Lineup from "../../container/Lineup/Lineup";
 import TransferPane from "../../components/TransferPane/TransferPane";
 
+//DATA
+import userData from "./sampledata";
+import apiData from "./test";
+
 const Main = props => {
     const [currentPage, setCurrentPage] = useState("lineup");
     let pageContent;
 
+    const squaData = {
+        GKS: [],
+        DEF: [],
+        MID: [],
+        FWD: []
+    };
+
+
+    userData.gwData.gameweek1.squad.goalkeepers.forEach(player => {
+        for (let index = 0; index < apiData.elements.length; index++) {
+            if (player.id === apiData.elements[index].id) {
+                squaData.GKS.push(apiData.elements[index]);
+                return;
+            }
+        }
+    });
+
+    userData.gwData.gameweek1.squad.defenders.forEach(player => {
+        for (let index = 0; index < apiData.elements.length; index++) {
+            if (player.id === apiData.elements[index].id) {
+                squaData.DEF.push(apiData.elements[index]);
+                return;
+            }
+        }
+    });
+    userData.gwData.gameweek1.squad.midfielders.forEach(player => {
+        for (let index = 0; index < apiData.elements.length; index++) {
+            if (player.id === apiData.elements[index].id) {
+                squaData.MID.push(apiData.elements[index]);
+                return;
+            }
+        }
+    });
+    userData.gwData.gameweek1.squad.forwards.forEach(player => {
+        for (let index = 0; index < apiData.elements.length; index++) {
+            if (player.id === apiData.elements[index].id) {
+                squaData.FWD.push(apiData.elements[index]);
+                return;
+            }
+        }
+    });
+
     if (currentPage === "lineup") {
         pageContent = <Lineup />
     } else {
-        pageContent = <Squad />
+        pageContent = <Squad data={squaData} />
     }
 
     return <>

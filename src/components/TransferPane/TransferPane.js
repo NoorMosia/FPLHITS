@@ -2,9 +2,12 @@ import React from "react";
 import * as Styles from "./TransferPane.module.css";
 
 import PlayerInfo from "./PlayerInfo/PlayerInfo";
+import Pagination from "../Pagination/Pagination";
+import Search from "../Search/Search";
 
 const TransferPane = () => {
     return <div className={Styles.TransferPane}>
+        <Search />
         <div className={Styles.Container}>
             <div className={Styles.Heading}>
                 Goalkeepers
@@ -52,6 +55,10 @@ const TransferPane = () => {
                 <PlayerInfo />
 
             </div>
+        </div>
+
+        <div className={Styles.Pagination}>
+            <Pagination />
         </div>
     </div>
 }

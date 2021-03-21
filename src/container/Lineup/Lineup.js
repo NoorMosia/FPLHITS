@@ -4,6 +4,7 @@ import Board from "../../components/Board/Board";
 import Subs from "./Substitutes/Substitutes";
 
 const Lineup = () => {
+
     const players = {
         GK: ["Martinezo"],
         DEF: ["Alexander-Arnold", "Taylor", "Dunk", "Veltman"],
