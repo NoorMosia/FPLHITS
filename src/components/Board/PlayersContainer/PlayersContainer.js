@@ -4,7 +4,6 @@ import * as Styles from "./PlayersContainer.module.css";
 import Player from "./Player/Player";
 
 const PlayersContainer = props => {
-    console.log("props")
     const GK = props.players.GK.map(player => {
         return <Player key={player.id} player={player} fixture="NEW(H)" />
     })
