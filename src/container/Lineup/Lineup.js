@@ -9,17 +9,22 @@ const Lineup = props => {
     const FWD = props.players.FWD.slice(0, 2)
 
     const players = {
-        GK: [props.players.GK[[props.team.goalkeeper[0]]]],
+        GK: [props.players.GK[0]],
         DEF: DEF,
         MID: MID,
         FWD: FWD
     }
-    // console.log(props)
-    console.log(players)
+    const subs = [
+        props.players.GK[0],
+        props.players.DEF[4],
+        props.players.MID[4],
+        props.players.FWD[2]
+
+    ]
 
     return <>
         <Board players={players} />
-        {/* <Subs /> */}
+        <Subs players={subs} />
     </>
 }
 

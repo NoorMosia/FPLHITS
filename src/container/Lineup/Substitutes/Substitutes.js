@@ -3,13 +3,14 @@ import * as Styles from "./Substitutes.module.css";
 
 import Player from "../../../components/Board/PlayersContainer/Player/Player";
 
-const PlayersContainer = () => {
+const Substitutes = props => {
+    const subs = props.players.map(player => {
+        return <Player key={player.code} player={player} type="subs" />
+    })
+
     return <div className={Styles.Row}>
-        <Player playerName="Martinez" fixture="NEW(H)" />
-        <Player playerName="Martinez" fixture="NEW(H)" />
-        <Player playerName="Martinez" fixture="NEW(H)" />
-        <Player playerName="Martinez" fixture="NEW(H)" />
+        {subs}
     </div>
 }
 
-export default PlayersContainer;
+export default Substitutes;

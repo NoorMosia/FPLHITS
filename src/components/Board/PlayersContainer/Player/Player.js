@@ -9,6 +9,9 @@ const Player = props => {
         image_url = `https://fantasy.premierleague.com/dist/img/shirts/standard/shirt_${props.player.team_code}-110.png`
 
     }
+
+    console.log(props)
+
     return <div className={Styles.PlayerColumn}>
         <img
             src={image_url}
@@ -19,7 +22,7 @@ const Player = props => {
                 {props.player.web_name}
             </div>
             <div className={Styles.Fixture}>
-                {props.fixture}
+                {props.player.opponent.name}
             </div>
         </div>
     </div >
