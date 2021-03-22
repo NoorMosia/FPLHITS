@@ -11,11 +11,11 @@ import userData from "./sampledata";
 import apiData from "./test";
 
 const Main = props => {
-    const [currentPage, setCurrentPage] = useState("lineup");
+    const [currentPage, setCurrentPage] = useState("squad");
     let pageContent;
 
-    const squaData = {
-        GKS: [],
+    const squadData = {
+        GK: [],
         DEF: [],
         MID: [],
         FWD: []
@@ -25,7 +25,7 @@ const Main = props => {
     userData.gwData.gameweek1.squad.goalkeepers.forEach(player => {
         for (let index = 0; index < apiData.elements.length; index++) {
             if (player.id === apiData.elements[index].id) {
-                squaData.GKS.push(apiData.elements[index]);
+                squadData.GK.push(apiData.elements[index]);
                 return;
             }
         }
@@ -34,7 +34,7 @@ const Main = props => {
     userData.gwData.gameweek1.squad.defenders.forEach(player => {
         for (let index = 0; index < apiData.elements.length; index++) {
             if (player.id === apiData.elements[index].id) {
-                squaData.DEF.push(apiData.elements[index]);
+                squadData.DEF.push(apiData.elements[index]);
                 return;
             }
         }
@@ -42,7 +42,7 @@ const Main = props => {
     userData.gwData.gameweek1.squad.midfielders.forEach(player => {
         for (let index = 0; index < apiData.elements.length; index++) {
             if (player.id === apiData.elements[index].id) {
-                squaData.MID.push(apiData.elements[index]);
+                squadData.MID.push(apiData.elements[index]);
                 return;
             }
         }
@@ -50,16 +50,16 @@ const Main = props => {
     userData.gwData.gameweek1.squad.forwards.forEach(player => {
         for (let index = 0; index < apiData.elements.length; index++) {
             if (player.id === apiData.elements[index].id) {
-                squaData.FWD.push(apiData.elements[index]);
+                squadData.FWD.push(apiData.elements[index]);
                 return;
             }
         }
     });
 
-    if (currentPage === "lineup") {
-        pageContent = <Lineup />
+    if (currentPage === "squad") {
+        pageContent = <Squad players={{ ...squadData }} />
     } else {
-        pageContent = <Squad data={squaData} />
+        pageContent = <Lineup players={{ ...squadData }} team={userData.gwData.gameweek1.lineup} />
     }
 
     return <>

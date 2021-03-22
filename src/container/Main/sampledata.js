@@ -83,8 +83,8 @@ const userData = {
 
             },
             substitutes: {
-                goalkeeper: 0,
-                outfield: [1, 6, 11, 14]
+                goalkeeper: 1,
+                outfield: [6, 11, 14]
             }
         }
     }
