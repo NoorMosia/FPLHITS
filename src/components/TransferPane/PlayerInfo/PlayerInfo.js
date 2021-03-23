@@ -1,23 +1,29 @@
 import React from "react";
 import * as Styles from "./PlayerInfo.module.css";
 
-const PlayerInfo = () => {
+const PlayerInfo = props => {
+    let image_url;
+    if (props.player.element_type === 1) {
+        image_url = `https://fantasy.premierleague.com/dist/img/shirts/standard/shirt_${props.player.team_code}_1-110.png`
+    } else {
+        image_url = `https://fantasy.premierleague.com/dist/img/shirts/standard/shirt_${props.player.team_code}-110.png`
+    }
     return <div className={Styles.PlayerInfo}>
         <div className={Styles.ImageContainer}>
             <img
-                src={`${process.env.PUBLIC_URL}/images/LIV.png`}
+                src={image_url}
                 alt="pitch"
             />
         </div>
         <div className={Styles.Name}>
-            Martinez
-                </div>
+            {props.player.web_name}
+        </div>
         <div className={Styles.Team}>
-            AVL
-                </div>
+            {props.player.total_points}
+        </div>
         <div className={Styles.Price}>
-            £5.2
-                </div>
+            £{parseFloat(props.player.now_cost / 10).toFixed(1)}
+        </div>
     </div>
 }
 

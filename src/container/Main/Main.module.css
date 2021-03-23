@@ -20,6 +20,26 @@
     margin: 10px;
 }
 
+.GWDetails {
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+    padding: 4px 10px;
+    margin: 20px 0;
+}
+
+.LeftBTN, .RightBTN, .Details {
+    width: 25%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 3px;
+}
+
+.LeftBTN, .RightBTN {
+    background: rgb(224, 224, 224);
+}
+
 
 @media screen and (max-width: 969px) {
     .Right {

@@ -9,14 +9,11 @@ import TransferPane from "../../components/TransferPane/TransferPane";
 //DATA
 import userData from "./_sampledata";
 import apiData from "./_test";
-import fixtures from "./_fixtures";
+// import fixtures from "./_fixtures";
 
 const Main = props => {
     const [currentPage, setCurrentPage] = useState("squad");
     let pageContent;
-
-    const comingGW = fixtures.filter(fixture => fixture.event === 29)
-
     const squadData = {
         GK: [],
         DEF: [],
@@ -24,70 +21,25 @@ const Main = props => {
         FWD: []
     };
 
-    userData.gwData.gameweek1.squad.goalkeepers.forEach(player => {
-        for (let index = 0; index < apiData.elements.length; index++) {
-            if (player.id === apiData.elements[index].id) {
-                let fixture = comingGW.find(game =>
-                    game.team_a === apiData.elements[index].team ||
-                    game.team_h === apiData.elements[index].team
-                )
-
-                fixture = { ...fixture }
-
-                let opponent;
-                if (fixture.team_a === apiData.elements[index].team) {
-                    opponent = apiData.teams.find(team => team.id === fixture.team_h)
-                } else {
-                    opponent = apiData.teams.find(team => team.id === fixture.team_a)
+    const populateSquadData = (data, position) => {
+        data.forEach(player => {
+            for (let index = 0; index < apiData.elements.length; index++) {
+                if (player.id === apiData.elements[index].id) {
+                    const team = apiData.teams.find(team => team.code === apiData.elements[index].team_code)
+                    apiData.elements[index] = {
+                        ...apiData.elements[index],
+                        team: { ...team },
+                    };
+                    squadData[position].push(apiData.elements[index]);
+                    return;
                 }
-
-                opponent = { ...opponent }
-                let opponentName = opponent.short_name;
-
-                const team = apiData.teams.find(team => team.code === apiData.elements[index].team_code)
-                apiData.elements[index].team = team;
-
-                apiData.elements[index].opponent = { name: opponentName };
-
-                squadData.GK.push(apiData.elements[index]);
-                return;
             }
-        }
-    });
-
-    // userData.gwData.gameweek1.squad.defenders.forEach(player => {
-    //     for (let index = 0; index < apiData.elements.length; index++) {
-    //         if (player.id === apiData.elements[index].id) {
-    //             const team = apiData.teams.find(team => team.code === apiData.elements[index].team_code)
-    //             apiData.elements[index].team = team;
-    //             apiData.elements[index].opponent = team;
-    //             squadData.DEF.push(apiData.elements[index]);
-    //             return;
-    //         }
-    //     }
-    // });
-    // userData.gwData.gameweek1.squad.midfielders.forEach(player => {
-    //     for (let index = 0; index < apiData.elements.length; index++) {
-    //         if (player.id === apiData.elements[index].id) {
-    //             const team = apiData.teams.find(team => team.code === apiData.elements[index].team_code)
-    //             apiData.elements[index].team = team;
-    //             apiData.elements[index].opponent = team;
-    //             squadData.MID.push(apiData.elements[index]);
-    //             return;
-    //         }
-    //     }
-    // });
-    // userData.gwData.gameweek1.squad.forwards.forEach(player => {
-    //     for (let index = 0; index < apiData.elements.length; index++) {
-    //         if (player.id === apiData.elements[index].id) {
-    //             const team = apiData.teams.find(team => team.code === apiData.elements[index].team_code)
-    //             apiData.elements[index].team = team;
-    //             apiData.elements[index].opponent = team;
-    //             squadData.FWD.push(apiData.elements[index]);
-    //             return;
-    //         }
-    //     }
-    // });
+        });
+    }
+    populateSquadData(userData.gwData.gameweek1.squad.goalkeepers, "GK")
+    populateSquadData(userData.gwData.gameweek1.squad.defenders, "DEF")
+    populateSquadData(userData.gwData.gameweek1.squad.midfielders, "MID")
+    populateSquadData(userData.gwData.gameweek1.squad.forwards, "FWD")
 
     if (currentPage === "squad") {
         pageContent = <Squad players={{ ...squadData }} />
@@ -97,16 +49,21 @@ const Main = props => {
 
     return <>
         <div className={Styles.Buttons}>
+            <Button size="md" onClick={() => setCurrentPage("history")} color={currentPage === "history" ? "white" : "black"}>POINTS</Button>
             <Button size="md" onClick={() => setCurrentPage("lineup")} color={currentPage === "lineup" ? "white" : "black"}>LINEUP</Button>
             <Button size="md" onClick={() => setCurrentPage("squad")} color={currentPage === "squad" ? "white" : "black"}>SQUAD</Button>
-            <Button size="md" onClick={() => setCurrentPage("history")} color={currentPage === "history" ? "white" : "black"}>HISTORY</Button>
         </div>
         <div className={Styles.Main}>
             <div className={Styles.Left}>
+                <div className={Styles.GWDetails}>
+                    <div className={Styles.LeftBTN}>Previous</div>
+                    <div className={Styles.Details}>Gameweek 29</div>
+                    <div className={Styles.RightBTN}>Next</div>
+                </div>
                 {pageContent}
             </div>
             <div className={Styles.Right}>
-                <TransferPane />
+                <TransferPane players={apiData} />
             </div>
         </div>
     </>
