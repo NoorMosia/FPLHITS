@@ -29,7 +29,7 @@
 }
 
 .LeftBTN, .RightBTN, .Details {
-    width: 25%;
+    width: 33%; 
     display: flex;
     justify-content: center;
     align-items: center;

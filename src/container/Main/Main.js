@@ -5,15 +5,13 @@ import * as Styles from "./Main.module.css";
 import Squad from "../../container/Squad/Squad";
 import Lineup from "../../container/Lineup/Lineup";
 import TransferPane from "../../components/TransferPane/TransferPane";
+import UserInfoPane from "../../components/UserInfoPane/UserInfoPane";
 
 //DATA
 import userData from "./_sampledata";
 import apiData from "./_test";
-// import fixtures from "./_fixtures";
 
 const Main = props => {
-    const [currentPage, setCurrentPage] = useState("squad");
-    let pageContent;
     const squadData = {
         GK: [],
         DEF: [],
@@ -41,10 +39,21 @@ const Main = props => {
     populateSquadData(userData.gwData.gameweek1.squad.midfielders, "MID")
     populateSquadData(userData.gwData.gameweek1.squad.forwards, "FWD")
 
+    const [currentPage, setCurrentPage] = useState("lineup");
+    let pageContent;
     if (currentPage === "squad") {
         pageContent = <Squad players={{ ...squadData }} />
-    } else {
+    } else if (currentPage === "lineup") {
         pageContent = <Lineup players={{ ...squadData }} team={userData.gwData.gameweek1.lineup} />
+    } else {
+        pageContent = <Lineup history={true} players={{ ...squadData }} team={userData.gwData.gameweek1.lineup} />
+    }
+
+    let RightSideContent;
+    if (currentPage === "squad") {
+        RightSideContent = <TransferPane players={apiData} />
+    } else {
+        RightSideContent = <UserInfoPane />
     }
 
     return <>
@@ -63,7 +72,7 @@ const Main = props => {
                 {pageContent}
             </div>
             <div className={Styles.Right}>
-                <TransferPane players={apiData} />
+                {RightSideContent}
             </div>
         </div>
     </>

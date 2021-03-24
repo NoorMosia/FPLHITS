@@ -106,7 +106,6 @@ const TransferPane = props => {
             </div>
             <div className={Styles.Content}>
                 {mids}
-
             </div>
         </div>
         <div className={Styles.Container}>
