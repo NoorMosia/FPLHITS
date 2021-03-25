@@ -25,7 +25,8 @@
     display: flex;
     justify-content: space-between;
     padding: 4px 10px;
-    margin: 20px 0;
+    margin-bottom: 20px;
+
 }
 
 .LeftBTN, .RightBTN, .Details {

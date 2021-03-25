@@ -8,7 +8,10 @@ const Player = props => {
     } else {
         image_url = `https://fantasy.premierleague.com/dist/img/shirts/standard/shirt_${props.player.team_code}-110.png`
     }
-    return <div className={Styles.PlayerColumn}>
+    return <div
+        onClick={props.onClick}
+        className={Styles.PlayerColumn}
+    >
         <img
             src={image_url}
             alt="pitch"

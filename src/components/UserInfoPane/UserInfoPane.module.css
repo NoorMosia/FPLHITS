@@ -1,12 +1,14 @@
 .UserInfoPane {
-    background-color: rgb(233, 233, 233);
+    background-color: rgb(245, 245, 245);
     padding: 10px;
 }
 
 .Name, .Points, .GWPoints{
     display: flex;
     justify-content: space-between;
-    margin: 10px;
+    margin: 14px;
+    font-weight: Bold;
+    border-bottom: 1px solid rgb(192, 192, 192);
 }
 
 .Label {

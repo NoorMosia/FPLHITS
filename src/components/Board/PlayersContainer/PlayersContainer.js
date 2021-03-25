@@ -4,20 +4,40 @@ import * as Styles from "./PlayersContainer.module.css";
 import Player from "./Player/Player";
 
 const PlayersContainer = props => {
-    const GK = props.players.GK.map(player => {
-        return <Player key={player.id} player={player} fixture="NEW(H)" />
+    const GK = props.players.GK.map((player, index) => {
+        return <Player
+            key={player.id}
+            player={player}
+            setSelectedPlayer={props.setSelectedPlayer}
+            onClick={() => props.setSelectedPlayer({ ...player, index: index })}
+        />
     })
 
-    const DEF = props.players.DEF.map(player => {
-        return <Player key={player.id} player={player} fixture="NEW(H)" />
+    const DEF = props.players.DEF.map((player, index) => {
+        return <Player
+            key={player.id}
+            player={player}
+            setSelectedPlayer={props.setSelectedPlayer}
+            onClick={() => props.setSelectedPlayer({ ...player, index: index })}
+        />
     })
 
-    const MID = props.players.MID.map(player => {
-        return <Player key={player.id} player={player} fixture="NEW(H)" />
+    const MID = props.players.MID.map((player, index) => {
+        return <Player
+            key={player.id}
+            player={player}
+            setSelectedPlayer={props.setSelectedPlayer}
+            onClick={() => props.setSelectedPlayer({ ...player, index: index })}
+        />
     })
 
-    const FWD = props.players.FWD.map(player => {
-        return <Player key={player.id} player={player} fixture="NEW(H)" />
+    const FWD = props.players.FWD.map((player, index) => {
+        return <Player
+            key={player.id}
+            player={player}
+            setSelectedPlayer={props.setSelectedPlayer}
+            onClick={() => props.setSelectedPlayer({ ...player, index: index })}
+        />
     })
 
     return <div className={Styles.PlayersContainer}>
