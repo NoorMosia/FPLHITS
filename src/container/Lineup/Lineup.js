@@ -1,10 +1,9 @@
 import React, { useState } from "react";
 import Board from "../../components/Board/Board";
-
 import Subs from "./Substitutes/Substitutes";
 
 const Lineup = props => {
-    const DEF = props.players.DEF.slice(0, 4)
+    let DEF = [];
     const MID = props.players.MID.slice(0, 4)
     const FWD = props.players.FWD.slice(0, 2)
 
@@ -25,13 +24,19 @@ const Lineup = props => {
     ];
 
     if (selectedStartingPlayer.index >= 0 && selectedBenchPlayer.index >= 0) {
-        console.log("swop");
+        // console.log("swop");
         setSelectedBenchPlayer({})
         setSelectedStartingPlayer({})
     }
 
-    console.log(selectedBenchPlayer);
-    console.log(selectedStartingPlayer);
+    // console.log(selectedBenchPlayer);
+    // console.log(selectedStartingPlayer);
+
+
+    for (let index = 0; index < props.team.defenders.length - 1; index++) {
+        DEF.push(props.players.DEF[props.team.defenders[index]])
+    }
+    console.log(props.players.DEF[0].position);
 
     return <>
         <Board

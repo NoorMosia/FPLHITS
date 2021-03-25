@@ -27,6 +27,7 @@ const Main = props => {
                     apiData.elements[index] = {
                         ...apiData.elements[index],
                         team: { ...team },
+                        position: player.position
                     };
                     squadData[position].push(apiData.elements[index]);
                     return;

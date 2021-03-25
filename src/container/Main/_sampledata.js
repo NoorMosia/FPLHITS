@@ -80,11 +80,9 @@ const userData = {
                 defenders: [2, 3, 4, 5],
                 midfielders: [7, 8, 9, 10],
                 forwards: [12, 13]
-
             },
             substitutes: {
-                goalkeeper: 1,
-                outfield: [6, 11, 14]
+                players: [1, 6, 11, 14]
             }
         }
     }
