@@ -29,8 +29,8 @@ const Lineup = props => {
         setSelectedStartingPlayer({})
     }
 
-    console.log(selectedBenchPlayer);
-    console.log(selectedStartingPlayer);
+    // console.log(selectedBenchPlayer);
+    // console.log(selectedStartingPlayer);
 
 
     for (let index = 0; index < props.team.defenders.length - 1; index++) {
