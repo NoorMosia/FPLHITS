@@ -32,11 +32,12 @@ const Lineup = props => {
     // console.log(selectedBenchPlayer);
     // console.log(selectedStartingPlayer);
 
-
-    for (let index = 0; index < props.team.defenders.length - 1; index++) {
-        DEF.push(props.players.DEF[props.team.defenders[index]])
+    console.log(props.team);
+    for (let index = 0; index < props.team.defenders.length; index++) {
+        console.log(props.players.DEF[0]);
+        // DEF.push(props.players.DEF[props.team.defenders[index]])
     }
-    console.log(props.players.DEF[0].position);
+    // console.log(props.players.DEF[0].position);
 
     return <>
         <Board
