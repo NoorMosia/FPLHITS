@@ -73,16 +73,13 @@ const userData = {
                         id: 665
                     },
                 ]
-
             },
             lineup: {
-                goalkeeper: [0],
-                defenders: [2, 3, 4, 5],
-                midfielders: [7, 8, 9, 10],
-                forwards: [12, 13]
-            },
-            substitutes: {
-                players: [1, 6, 11, 14]
+                GK: [0],
+                DEF: [2, 3, 4, 5],
+                MID: [7, 8, 9, 10],
+                FWD: [12, 13],
+                SUB: [1, 6, 11, 14]
             }
         }
     }

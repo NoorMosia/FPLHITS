@@ -3,41 +3,46 @@ import Board from "../../components/Board/Board";
 import Subs from "./Substitutes/Substitutes";
 
 const Lineup = props => {
-    let DEF = [];
-    const MID = props.players.MID.slice(0, 4)
-    const FWD = props.players.FWD.slice(0, 2)
-
     const [selectedBenchPlayer, setSelectedBenchPlayer] = useState({})
     const [selectedStartingPlayer, setSelectedStartingPlayer] = useState({})
 
     const players = {
-        GK: [props.players.GK[0]],
-        DEF: DEF,
-        MID: MID,
-        FWD: FWD
+        GK: [],
+        DEF: [],
+        MID: [],
+        FWD: [],
+        SUB: []
     }
-    const subs = [
-        props.players.GK[0],
-        props.players.DEF[4],
-        props.players.MID[4],
-        props.players.FWD[2]
-    ];
 
     if (selectedStartingPlayer.index >= 0 && selectedBenchPlayer.index >= 0) {
-        // console.log("swop");
         setSelectedBenchPlayer({})
         setSelectedStartingPlayer({})
     }
 
-    // console.log(selectedBenchPlayer);
-    // console.log(selectedStartingPlayer);
-
-    console.log(props.team);
-    for (let index = 0; index < props.team.defenders.length; index++) {
-        console.log(props.players.DEF[0]);
-        // DEF.push(props.players.DEF[props.team.defenders[index]])
+    const fillTeam = role => {
+        // fills the players array in a certain role e.g GK or MID...
+        props.team[role].forEach(teamPlayer => {
+            let player = props.players[role].find(SquadPlayer => SquadPlayer.position === teamPlayer)
+            if (player) { players[role].push(player) }
+        })
     }
-    // console.log(props.players.DEF[0].position);
+
+    fillTeam("GK")
+    fillTeam("DEF")
+    fillTeam("MID")
+    fillTeam("FWD")
+    props.team.SUB.forEach(teamPlayer => {
+        // this function fills the substitutes
+        let player = props.players.GK.find(SquadPlayer => SquadPlayer.position === teamPlayer)
+        if (!player)
+            player = props.players.DEF.find(SquadPlayer => SquadPlayer.position === teamPlayer)
+        if (!player)
+            player = props.players.MID.find(SquadPlayer => SquadPlayer.position === teamPlayer)
+        if (!player)
+            player = props.players.FWD.find(SquadPlayer => SquadPlayer.position === teamPlayer)
+
+        players.SUB.push(player)
+    })
 
     return <>
         <Board
@@ -45,7 +50,7 @@ const Lineup = props => {
             setSelectedPlayer={setSelectedStartingPlayer}
         />
         <Subs
-            players={subs}
+            players={players.SUB}
             setSelectedPlayer={setSelectedBenchPlayer}
         />
     </>

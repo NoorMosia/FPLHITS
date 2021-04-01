@@ -8,10 +8,14 @@ import TransferPane from "../../components/TransferPane/TransferPane";
 import UserInfoPane from "../../components/UserInfoPane/UserInfoPane";
 
 //DATA
-import userData from "./_sampledata";
-import apiData from "./_test";
+import initUserData from "./_sampledata";
+import initApiData from "./_test";
 
-const Main = props => {
+const Main = () => {
+    const [userData] = useState(initUserData)
+    const [apiData] = useState(initApiData)
+    const [currentPage, setCurrentPage] = useState("lineup");
+
     const squadData = {
         GK: [],
         DEF: [],
@@ -40,7 +44,6 @@ const Main = props => {
     populateSquadData(userData.gwData.gameweek1.squad.midfielders, "MID")
     populateSquadData(userData.gwData.gameweek1.squad.forwards, "FWD")
 
-    const [currentPage, setCurrentPage] = useState("lineup");
     let pageContent;
     if (currentPage === "squad") {
         pageContent = <Squad players={{ ...squadData }} />
@@ -77,7 +80,6 @@ const Main = props => {
             </div>
         </div>
     </>
-
 }
 
 export default Main;
