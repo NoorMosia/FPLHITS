@@ -21,7 +21,7 @@ const Player = props => {
                 {props.player.web_name}
             </div>
             <div className={Styles.Fixture}>
-                {props.player.team.short_name}
+                {props.player.position}
             </div>
         </div>
     </div >

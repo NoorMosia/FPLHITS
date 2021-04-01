@@ -16,6 +16,41 @@ const Main = () => {
     const [apiData] = useState(initApiData)
     const [currentPage, setCurrentPage] = useState("lineup");
 
+    //for swopping bech player for a player in the squad
+    const [selectedBenchPlayer, setSelectedBenchPlayer] = useState({})
+    const [selectedStartingPlayer, setSelectedStartingPlayer] = useState({})
+    const swop = (benched, starting) => {
+        let newUserData = { ...userData }
+
+        let startingIndex = newUserData.gwData
+            .gameweek1.lineup[starting.position]
+            .findIndex((player) => {
+                return player === starting.placement
+            })
+        let benchedIndex = newUserData.gwData
+            .gameweek1.lineup.SUB
+            .findIndex((player) => {
+                return player === benched.placement
+            })
+
+        if (starting.position === benched.position) {
+            newUserData.gwData.gameweek1.lineup[starting.position][startingIndex] = benched.placement
+            newUserData.gwData.gameweek1.lineup.SUB[benchedIndex] = starting.placement
+        }
+
+        if (starting.position !== benched.position && benched.id !== starting.id) {
+            newUserData.gwData.gameweek1.lineup[starting.position].slice(startingIndex, 1)
+            // newUserData.gwData.gameweek1.lineup[benched.position].push(benched.placement)
+            //remains the same
+            newUserData.gwData.gameweek1.lineup.SUB[benchedIndex] = starting.placement
+        }
+    }
+    if (selectedStartingPlayer.index >= 0 && selectedBenchPlayer.index >= 0) {
+        swop(selectedBenchPlayer, selectedStartingPlayer)
+        setSelectedBenchPlayer({})
+        setSelectedStartingPlayer({})
+    }
+
     const squadData = {
         GK: [],
         DEF: [],
@@ -31,7 +66,8 @@ const Main = () => {
                     apiData.elements[index] = {
                         ...apiData.elements[index],
                         team: { ...team },
-                        position: player.position
+                        position: position,
+                        placement: player.placement
                     };
                     squadData[position].push(apiData.elements[index]);
                     return;
@@ -48,7 +84,12 @@ const Main = () => {
     if (currentPage === "squad") {
         pageContent = <Squad players={{ ...squadData }} />
     } else if (currentPage === "lineup") {
-        pageContent = <Lineup players={{ ...squadData }} team={userData.gwData.gameweek1.lineup} />
+        pageContent = <Lineup
+            setSelectedBenchPlayer={setSelectedBenchPlayer}
+            setSelectedStartingPlayer={setSelectedStartingPlayer}
+            players={{ ...squadData }}
+            team={userData.gwData.gameweek1.lineup}
+        />
     } else {
         pageContent = <Lineup history={true} players={{ ...squadData }} team={userData.gwData.gameweek1.lineup} />
     }

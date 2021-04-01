@@ -6,70 +6,70 @@ const userData = {
             squad: {
                 goalkeepers: [
                     {
-                        position: 0,
+                        placement: 0,
                         id: 8
                     },
                     {
-                        position: 1,
+                        placement: 1,
                         id: 12
                     }
                 ],
                 defenders: [
                     {
-                        position: 2,
+                        placement: 2,
                         id: 97
                     },
                     {
-                        position: 3,
+                        placement: 3,
                         id: 123
                     },
                     {
-                        position: 4,
+                        placement: 4,
                         id: 232
                     },
                     {
-                        position: 5,
+                        placement: 5,
                         id: 484
                     },
                     {
-                        position: 6,
+                        placement: 6,
                         id: 562
                     }
                 ],
                 midfielders: [
                     {
-                        position: 7,
+                        placement: 7,
                         id: 4
                     },
                     {
-                        position: 8,
+                        placement: 8,
                         id: 122
                     },
                     {
-                        position: 9,
+                        placement: 9,
                         id: 339
                     },
                     {
-                        position: 10,
+                        placement: 10,
                         id: 481
 
                     },
                     {
-                        position: 11,
+                        placement: 11,
                         id: 515
                     },
                 ],
                 forwards: [
                     {
-                        position: 12,
+                        placement: 12,
                         id: 437
                     },
                     {
-                        position: 13,
+                        placement: 13,
                         id: 651
                     },
                     {
-                        position: 14,
+                        placement: 14,
                         id: 665
                     },
                 ]
