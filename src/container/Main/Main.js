@@ -12,13 +12,14 @@ import initUserData from "./_sampledata";
 import initApiData from "./_test";
 
 const Main = () => {
-    const [userData] = useState(initUserData)
+    const [userData, setUserData] = useState(initUserData)
     const [apiData] = useState(initApiData)
     const [currentPage, setCurrentPage] = useState("lineup");
 
     //for swopping bech player for a player in the squad
     const [selectedBenchPlayer, setSelectedBenchPlayer] = useState({})
     const [selectedStartingPlayer, setSelectedStartingPlayer] = useState({})
+
     const swop = (benched, starting) => {
         let newUserData = { ...userData }
 
@@ -38,13 +39,33 @@ const Main = () => {
             newUserData.gwData.gameweek1.lineup.SUB[benchedIndex] = starting.placement
         }
 
-        if (starting.position !== benched.position && benched.id !== starting.id) {
-            newUserData.gwData.gameweek1.lineup[starting.position].slice(startingIndex, 1)
-            // newUserData.gwData.gameweek1.lineup[benched.position].push(benched.placement)
-            //remains the same
+        if (starting.position !== benched.position) {
+            const addedplayerArray = [...newUserData.gwData.gameweek1.lineup[benched.position]]
+            const removedPlayerArray = [...newUserData.gwData.gameweek1.lineup[starting.position]]
+            removedPlayerArray.splice(startingIndex, 1)
+            addedplayerArray.push(benched.placement)
+            newUserData = {
+                ...newUserData,
+                gwData: {
+                    ...newUserData.gwData,
+                    gameweek1: {
+                        ...newUserData.gwData.gameweek1,
+                        lineup: {
+                            ...newUserData.gwData.gameweek1.lineup,
+                            [benched.position]: [...addedplayerArray],
+                            [starting.position]: [...removedPlayerArray]
+                        }
+                    }
+                }
+            }
+
+
             newUserData.gwData.gameweek1.lineup.SUB[benchedIndex] = starting.placement
         }
+
+        setUserData({ ...newUserData });
     }
+    // console.log(userData);
     if (selectedStartingPlayer.index >= 0 && selectedBenchPlayer.index >= 0) {
         swop(selectedBenchPlayer, selectedStartingPlayer)
         setSelectedBenchPlayer({})

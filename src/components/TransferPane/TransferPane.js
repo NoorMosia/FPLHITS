@@ -110,7 +110,7 @@ const TransferPane = props => {
         </div>
         <div className={Styles.Container}>
             <div className={Styles.Heading}>
-                Forwards
+                Forwardss
             </div>
             <div className={Styles.Content}>
                 {forwards}
