@@ -53,13 +53,11 @@ const Main = () => {
                         lineup: {
                             ...newUserData.gwData.gameweek1.lineup,
                             [benched.position]: [...addedplayerArray],
-                            [starting.position]: [...removedPlayerArray]
+                            [starting.position]: [...removedPlayerArray],
                         }
                     }
                 }
             }
-
-
             newUserData.gwData.gameweek1.lineup.SUB[benchedIndex] = starting.placement
         }
 
@@ -67,7 +65,15 @@ const Main = () => {
     }
     // console.log(userData);
     if (selectedStartingPlayer.index >= 0 && selectedBenchPlayer.index >= 0) {
-        swop(selectedBenchPlayer, selectedStartingPlayer)
+        if (selectedBenchPlayer.position === "GK" && selectedStartingPlayer.position !== "GK") {
+
+        } else if (selectedStartingPlayer.position === "GK" && selectedBenchPlayer.position !== "GK") {
+
+        } else if (selectedStartingPlayer.position === "FWD" && userData.gwData.gameweek1.lineup.FWD.length < 2) {
+
+        } else {
+            swop(selectedBenchPlayer, selectedStartingPlayer)
+        }
         setSelectedBenchPlayer({})
         setSelectedStartingPlayer({})
     }
