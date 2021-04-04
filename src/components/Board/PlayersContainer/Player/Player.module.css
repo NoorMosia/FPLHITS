@@ -53,3 +53,7 @@
         font-size: 10px;
     }
 }
+
+.Opaque {
+    opacity: 0.5;
+}

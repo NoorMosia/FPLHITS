@@ -2,12 +2,13 @@ import React from "react";
 import * as Styles from "./Player.module.css";
 
 const Player = props => {
-    let image_url = "";
-    if (props.player.element_type === 1) {
-        image_url = `https://fantasy.premierleague.com/dist/img/shirts/standard/shirt_${props.player.team_code}_1-110.png`
-    } else {
-        image_url = `https://fantasy.premierleague.com/dist/img/shirts/standard/shirt_${props.player.team_code}-110.png`
-    }
+    let image_url = `${process.env.PUBLIC_URL}/images/ARS.png`;
+    // if (props.player.element_type === 1) {
+    //     image_url = `https://fantasy.premierleague.com/dist/img/shirts/standard/shirt_${props.player.team_code}_1-110.png`
+    // } else {
+    //     image_url = `https://fantasy.premierleague.com/dist/img/shirts/standard/shirt_${props.player.team_code}-110.png`
+    // }
+
     return <div
         onClick={props.onClick}
         className={Styles.PlayerColumn}

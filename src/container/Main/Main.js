@@ -94,7 +94,8 @@ const Main = () => {
                         ...apiData.elements[index],
                         team: { ...team },
                         position: position,
-                        placement: player.placement
+                        placement: player.placement,
+                        selectedBenchPlayer: selectedBenchPlayer
                     };
                     squadData[position].push(apiData.elements[index]);
                     return;
