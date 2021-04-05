@@ -4,12 +4,16 @@ import * as Styles from "./PlayersContainer.module.css";
 import Player from "./Player/Player";
 
 const PlayersContainer = props => {
+    const selectPlayer = (player, index) => {
+        props.setSelectedPlayer({ ...player, index: index })
+        console.log(player);
+    }
     const GK = props.players.GK.map((player, index) => {
         return <Player
             key={player.id}
             player={player}
             setSelectedPlayer={props.setSelectedPlayer}
-            onClick={() => props.setSelectedPlayer({ ...player, index: index })}
+            onClick={() => selectPlayer(player, index)}
         />
     })
 

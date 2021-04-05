@@ -95,7 +95,8 @@ const Main = () => {
                         team: { ...team },
                         position: position,
                         placement: player.placement,
-                        selectedBenchPlayer: selectedBenchPlayer
+                        selectedBenchPlayer: selectedBenchPlayer,
+                        selectedStartingPlayer: selectedStartingPlayer
                     };
                     squadData[position].push(apiData.elements[index]);
                     return;

@@ -8,10 +8,25 @@ const Player = props => {
     // } else {
     //     image_url = `https://fantasy.premierleague.com/dist/img/shirts/standard/shirt_${props.player.team_code}-110.png`
     // }
+    let style = `${Styles.PlayerColumn}`
+
+    // if (props.player.selectedBenchPlayer.code === props.player.code) {
+    //     style += ` ${Styles.Opaque}`
+    // }
+    // if (props.player.selectedStartingPlayer.code === props.player.code) {
+    //     style += ` ${Styles.Opaque}`
+    // }
+
+    if (props.player.selectedStartingPlayer.code && props.player.selectedStartingPlayer.code !== props.player.code) {
+        style += ` ${Styles.Opaque}`
+    }
+    if (props.player.selectedBenchPlayer.code && props.player.selectedBenchPlayer.code !== props.player.code) {
+        style += ` ${Styles.Opaque}`
+    }
 
     return <div
         onClick={props.onClick}
-        className={Styles.PlayerColumn}
+        className={style}
     >
         <img
             src={image_url}
