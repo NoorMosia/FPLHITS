@@ -84,7 +84,6 @@ const Main = () => {
         MID: [],
         FWD: []
     };
-
     const populateSquadData = (data, position) => {
         data.forEach(player => {
             for (let index = 0; index < apiData.elements.length; index++) {
@@ -111,16 +110,25 @@ const Main = () => {
 
     let pageContent;
     if (currentPage === "squad") {
-        pageContent = <Squad players={{ ...squadData }} />
+        pageContent = <Squad
+            players={{ ...squadData }}
+        />
+
     } else if (currentPage === "lineup") {
         pageContent = <Lineup
-            setSelectedBenchPlayer={setSelectedBenchPlayer}
-            setSelectedStartingPlayer={setSelectedStartingPlayer}
             players={{ ...squadData }}
             team={userData.gwData.gameweek1.lineup}
+            setSelectedBenchPlayer={setSelectedBenchPlayer}
+            setSelectedStartingPlayer={setSelectedStartingPlayer}
         />
+
     } else {
-        pageContent = <Lineup history={true} players={{ ...squadData }} team={userData.gwData.gameweek1.lineup} />
+        pageContent = <Lineup
+            players={{ ...squadData }}
+            team={userData.gwData.gameweek1.lineup}
+            setSelectedBenchPlayer={setSelectedBenchPlayer}
+            setSelectedStartingPlayer={setSelectedStartingPlayer}
+        />
     }
 
     let RightSideContent;
