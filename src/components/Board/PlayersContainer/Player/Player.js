@@ -10,17 +10,11 @@ const Player = props => {
     // }
     let style = `${Styles.PlayerColumn}`
 
-    // if (props.player.selectedBenchPlayer.code === props.player.code) {
-    //     style += ` ${Styles.Opaque}`
-    // }
-    // if (props.player.selectedStartingPlayer.code === props.player.code) {
-    //     style += ` ${Styles.Opaque}`
-    // }
 
-    if (props.player.selectedStartingPlayer.code && props.player.selectedStartingPlayer.code !== props.player.code) {
+    if (props.player.selectedStartingPlayer.code === props.player.code) {
         style += ` ${Styles.Opaque}`
     }
-    if (props.player.selectedBenchPlayer.code && props.player.selectedBenchPlayer.code !== props.player.code) {
+    if (props.player.selectedBenchPlayer.code === props.player.code) {
         style += ` ${Styles.Opaque}`
     }
 

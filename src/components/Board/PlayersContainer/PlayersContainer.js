@@ -5,8 +5,12 @@ import Player from "./Player/Player";
 
 const PlayersContainer = props => {
     const selectPlayer = (player, index) => {
-        props.setSelectedPlayer({ ...player, index: index })
-        console.log(player);
+        if (!player.selectedStartingPlayer.id) {
+            console.log("HI");
+            props.setSelectedPlayer({ ...player, index: index })
+        } else {
+            props.setSelectedPlayer({})
+        }
     }
     const GK = props.players.GK.map((player, index) => {
         return <Player
@@ -22,7 +26,7 @@ const PlayersContainer = props => {
             key={player.id}
             player={player}
             setSelectedPlayer={props.setSelectedPlayer}
-            onClick={() => props.setSelectedPlayer({ ...player, index: index })}
+            onClick={() => selectPlayer(player, index)}
         />
     })
 
@@ -31,7 +35,7 @@ const PlayersContainer = props => {
             key={player.id}
             player={player}
             setSelectedPlayer={props.setSelectedPlayer}
-            onClick={() => props.setSelectedPlayer({ ...player, index: index })}
+            onClick={() => selectPlayer(player, index)}
         />
     })
 
@@ -40,7 +44,7 @@ const PlayersContainer = props => {
             key={player.id}
             player={player}
             setSelectedPlayer={props.setSelectedPlayer}
-            onClick={() => props.setSelectedPlayer({ ...player, index: index })}
+            onClick={() => selectPlayer(player, index)}
         />
     })
 

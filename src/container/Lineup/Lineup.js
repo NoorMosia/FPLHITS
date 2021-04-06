@@ -41,10 +41,12 @@ const Lineup = props => {
         <Board
             players={players}
             setSelectedPlayer={props.setSelectedStartingPlayer}
+            selectedPlayer={props.selectedStartingPlayer}
         />
         <Subs
             players={players.SUB}
             setSelectedPlayer={props.setSelectedBenchPlayer}
+            selectedPlayer={props.selectedBenchPlayer}
         />
     </>
 }

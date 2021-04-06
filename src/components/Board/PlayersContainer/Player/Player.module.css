@@ -56,5 +56,6 @@
 
 .Opaque {
     /* box-shadow: 20px 20px 20px rgb(134, 134, 134); */
-    opacity: 0.5;
+    background: radial-gradient(rgba(0, 0, 0, 0.103),rgba(59, 59, 59, 0.288));
+    /* opacity: 0.5; */
 }

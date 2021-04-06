@@ -4,12 +4,20 @@ import * as Styles from "./Substitutes.module.css";
 import Player from "../../../components/Board/PlayersContainer/Player/Player";
 
 const Substitutes = props => {
+    const selectPlayer = (player, index) => {
+        if (!player.selectedBenchPlayer.id) {
+            console.log("HI");
+            props.setSelectedPlayer({ ...player, index: index })
+        } else {
+            props.setSelectedPlayer({})
+        }
+    }
     const subs = props.players.map((player, index) => {
         return <Player
             className={Styles.Selected}
             key={player.code}
             player={player}
-            onClick={() => props.setSelectedPlayer({ ...player, index: index })}
+            onClick={() => selectPlayer(player, index)}
             type="subs" />
     });
 
