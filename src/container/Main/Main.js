@@ -14,11 +14,14 @@ import initApiData from "./_test";
 const Main = () => {
     const [userData, setUserData] = useState(initUserData)
     const [apiData] = useState(initApiData)
-    const [currentPage, setCurrentPage] = useState("lineup");
+    const [currentPage, setCurrentPage] = useState("squad");
 
     //for swopping bech player for a player in the squad
     const [selectedBenchPlayer, setSelectedBenchPlayer] = useState({})
     const [selectedStartingPlayer, setSelectedStartingPlayer] = useState({})
+
+    // Squad transfers
+    const [selectedSquadPlayer, setSelectedSquadPlayer] = useState({})
 
     const swop = (benched, starting) => {
         let newUserData = { ...userData }
@@ -95,7 +98,8 @@ const Main = () => {
                         position: position,
                         placement: player.placement,
                         selectedBenchPlayer: selectedBenchPlayer,
-                        selectedStartingPlayer: selectedStartingPlayer
+                        selectedStartingPlayer: selectedStartingPlayer,
+                        selectedSquadPlayer: selectedSquadPlayer
                     };
                     squadData[position].push(apiData.elements[index]);
                     return;
@@ -112,6 +116,7 @@ const Main = () => {
     if (currentPage === "squad") {
         pageContent = <Squad
             players={{ ...squadData }}
+            setSelectedSquadPlayer={setSelectedSquadPlayer}
         />
 
     } else if (currentPage === "lineup") {

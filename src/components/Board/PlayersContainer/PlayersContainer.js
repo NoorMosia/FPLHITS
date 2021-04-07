@@ -6,8 +6,12 @@ import Player from "./Player/Player";
 const PlayersContainer = props => {
     const selectPlayer = (player, index) => {
         if (!player.selectedStartingPlayer.id) {
-            console.log("HI");
             props.setSelectedPlayer({ ...player, index: index })
+            if (!player.selectedSquadPlayer.id) {
+                props.setSelectedPlayer({ ...player, index: index })
+            } else {
+                props.setSelectedPlayer({})
+            }
         } else {
             props.setSelectedPlayer({})
         }

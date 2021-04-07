@@ -10,11 +10,13 @@ const Player = props => {
     }
     let style = `${Styles.PlayerColumn}`
 
-
     if (props.player.selectedStartingPlayer.code === props.player.code) {
         style += ` ${Styles.Opaque}`
     }
     if (props.player.selectedBenchPlayer.code === props.player.code) {
+        style += ` ${Styles.Opaque}`
+    }
+    if (props.player.selectedSquadPlayer.code === props.player.code) {
         style += ` ${Styles.Opaque}`
     }
 

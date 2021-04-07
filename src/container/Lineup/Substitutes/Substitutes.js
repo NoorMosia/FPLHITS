@@ -6,7 +6,6 @@ import Player from "../../../components/Board/PlayersContainer/Player/Player";
 const Substitutes = props => {
     const selectPlayer = (player, index) => {
         if (!player.selectedBenchPlayer.id) {
-            console.log("HI");
             props.setSelectedPlayer({ ...player, index: index })
         } else {
             props.setSelectedPlayer({})
