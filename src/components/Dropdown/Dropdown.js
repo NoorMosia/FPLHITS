@@ -9,7 +9,7 @@ class SelectPage extends Component {
                     <option value="1">Goalkeepers</option>
                     <option value="2">Defenders</option>
                     <option value="3">Midfielders</option>
-                    <option value="3">Forwards</option>
+                    <option value="3">Forwards </option>
                 </select>
             </div>
         );
