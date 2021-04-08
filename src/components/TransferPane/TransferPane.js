@@ -4,6 +4,7 @@ import * as Styles from "./TransferPane.module.css";
 import PlayerInfo from "./PlayerInfo/PlayerInfo";
 import Pagination from "../Pagination/Pagination";
 import Search from "../Search/Search";
+import Dropdown from "../Dropdown/Dropdown";
 
 const TransferPane = props => {
     const allPlayers = {
@@ -84,6 +85,8 @@ const TransferPane = props => {
     return <div className={Styles.TransferPane}>
         <Search value={searchTerm}
             onChange={handleChange} />
+        <Dropdown />
+
         <div className={Styles.Container}>
             <div className={Styles.Heading}>
                 Goalkeepers
