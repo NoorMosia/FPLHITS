@@ -9,6 +9,8 @@ const PlayersContainer = props => {
             props.setSelectedPlayer({ ...player, index: index })
             if (!player.selectedSquadPlayer.id) {
                 props.setSelectedPlayer({ ...player, index: index })
+
+                // props.setSquadTransferable(props.selectedSquadPlayer.position)
             } else {
                 props.setSelectedPlayer({})
             }

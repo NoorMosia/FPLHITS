@@ -7,6 +7,7 @@ const Squad = props => {
         <Board
             players={props.players}
             setSelectedPlayer={props.setSelectedSquadPlayer}
+            {...props}
         />
     </>
 }

@@ -69,56 +69,97 @@ const TransferPane = props => {
     allPlayers.MID.sort((a, b) => (a.total_points < b.total_points) ? 1 : -1)
     allPlayers.FWD.sort((a, b) => (a.total_points < b.total_points) ? 1 : -1)
 
-    const goalkeepers = allPlayers.GK.slice(0, 3).map(player => {
-        return <PlayerInfo key={player.code} player={player} />
-    })
-    const defenders = allPlayers.DEF.slice(0, 5).map(player => {
-        return <PlayerInfo key={player.code} player={player} />
-    })
-    const mids = allPlayers.MID.slice(0, 5).map(player => {
-        return <PlayerInfo key={player.code} player={player} />
-    })
-    const forwards = allPlayers.FWD.slice(0, 5).map(player => {
-        return <PlayerInfo key={player.code} player={player} />
-    })
+    let goalkeepers = [];
+    let defenders = [];
+    let mids = [];
+    let forwards = [];
+
+    if (props.squadTransferable === "All") {
+        goalkeepers = allPlayers.GK.slice(0, 3).map(player => {
+            return <PlayerInfo key={player.code} player={player} />
+        })
+    } else if (props.squadTransferable === "GK") {
+        goalkeepers = allPlayers.GK.slice(0, 10).map(player => {
+            return <PlayerInfo key={player.code} player={player} />
+        })
+    }
+    if (props.squadTransferable === "All") {
+        defenders = allPlayers.DEF.slice(0, 5).map(player => {
+            return <PlayerInfo key={player.code} player={player} />
+        })
+    } else if (props.squadTransferable === "DEF") {
+        defenders = allPlayers.DEF.slice(0, 10).map(player => {
+            return <PlayerInfo key={player.code} player={player} />
+        })
+    }
+    if (props.squadTransferable === "All") {
+        mids = allPlayers.MID.slice(0, 5).map(player => {
+            return <PlayerInfo key={player.code} player={player} />
+        })
+    } else if (props.squadTransferable === "MID") {
+        mids = allPlayers.MID.slice(0, 10).map(player => {
+            return <PlayerInfo key={player.code} player={player} />
+        })
+    }
+    if (props.squadTransferable === "All") {
+        forwards = allPlayers.FWD.slice(0, 5).map(player => {
+            return <PlayerInfo key={player.code} player={player} />
+        })
+    } else if (props.squadTransferable === "FWD") {
+        forwards = allPlayers.FWD.slice(0, 10).map(player => {
+            return <PlayerInfo key={player.code} player={player} />
+        })
+    }
 
     return <div className={Styles.TransferPane}>
         <Search value={searchTerm}
             onChange={handleChange} />
-        <Dropdown />
+        <Dropdown onChange={props.setSquadTransferable} />
 
-        <div className={Styles.Container}>
-            <div className={Styles.Heading}>
-                Goalkeepers
-            </div>
-            <div className={Styles.Content}>
-                {goalkeepers}
-            </div>
-        </div>
-        <div className={Styles.Container}>
-            <div className={Styles.Heading}>
-                Defenders
-            </div>
-            <div className={Styles.Content}>
-                {defenders}
-            </div>
-        </div>
-        <div className={Styles.Container}>
-            <div className={Styles.Heading}>
-                Midfielders
-            </div>
-            <div className={Styles.Content}>
-                {mids}
-            </div>
-        </div>
-        <div className={Styles.Container}>
-            <div className={Styles.Heading}>
-                Forwardss
-            </div>
-            <div className={Styles.Content}>
-                {forwards}
-            </div>
-        </div>
+        {
+            goalkeepers.length > 0 ?
+                <div className={Styles.Container}>
+                    <div className={Styles.Heading}>
+                        Goalkeepers
+                    </div>
+                    <div className={Styles.Content}>
+                        {goalkeepers}
+                    </div>
+                </div> : ""
+        }
+        {
+            defenders.length > 0 ?
+                <div className={Styles.Container}>
+                    <div className={Styles.Heading}>
+                        Defenders
+                    </div>
+                    <div className={Styles.Content}>
+                        {defenders}
+                    </div>
+                </div> : ""
+        }
+        {
+            mids.length > 0 ?
+                <div className={Styles.Container}>
+                    <div className={Styles.Heading}>
+                        Midfielders
+                    </div>
+                    <div className={Styles.Content}>
+                        {mids}
+                    </div>
+                </div> : ""
+        }
+        {
+            forwards.length > 0 ?
+                <div className={Styles.Container}>
+                    <div className={Styles.Heading}>
+                        Forwardss
+                    </div>
+                    <div className={Styles.Content}>
+                        {forwards}
+                    </div>
+                </div> : ""
+        }
 
         <div className={Styles.Pagination}>
             <Pagination />

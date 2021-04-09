@@ -15,7 +15,9 @@ const PaginationPage = () => {
                 </MDBPageNav>
             </MDBPageItem>
             <MDBPageItem>
-                <MDBPageNav>2</MDBPageNav>
+                <MDBPageNav>
+                    of
+                </MDBPageNav>
             </MDBPageItem>
             <MDBPageItem>
                 <MDBPageNav>3</MDBPageNav>

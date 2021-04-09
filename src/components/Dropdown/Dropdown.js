@@ -4,12 +4,12 @@ class SelectPage extends Component {
     render() {
         return (
             <div>
-                <select className="browser-default custom-select">
-                    <option>ALL</option>
-                    <option value="1">Goalkeepers</option>
-                    <option value="2">Defenders</option>
-                    <option value="3">Midfielders</option>
-                    <option value="3">Forwards </option>
+                <select onChange={(event) => this.props.onChange(event.target.value)} className="browser-default custom-select">
+                    <option value="All">All</option>
+                    <option value="GK">Goalkeepers</option>
+                    <option value="DEF">Defenders</option>
+                    <option value="MID">Midfielders</option>
+                    <option value="FWD">Forwards </option>
                 </select>
             </div>
         );
