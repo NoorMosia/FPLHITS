@@ -5,7 +5,10 @@ import PlayersContainer from "./PlayersContainer/PlayersContainer";
 
 const Board = props => {
     return <div className={Styles.Board}>
-        <PlayersContainer {...props} players={props.players} />
+        <PlayersContainer
+            {...props}
+            players={props.players}
+        />
     </div >
 }
 
