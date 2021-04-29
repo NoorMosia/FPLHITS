@@ -76,7 +76,10 @@ const TransferPane = props => {
 
     if (props.squadTransferable === "All") {
         goalkeepers = allPlayers.GK.slice(0, 3).map(player => {
-            return <PlayerInfo key={player.code} player={player} />
+            return <PlayerInfo
+                setSelectedPlayerToTransferIN={props.setSelectedPlayerToTransferIN}
+                key={player.code}
+                player={player} />
         })
     } else if (props.squadTransferable === "GK") {
         goalkeepers = allPlayers.GK.slice(0, 10).map(player => {

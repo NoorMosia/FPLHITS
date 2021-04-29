@@ -8,7 +8,10 @@ const PlayerInfo = props => {
     } else {
         image_url = `https://fantasy.premierleague.com/dist/img/shirts/standard/shirt_${props.player.team_code}-110.png`
     }
-    return <div className={Styles.PlayerInfo}>
+    return <div
+        className={Styles.PlayerInfo}
+        onClick={() => props.setSelectedPlayerToTransferIN(props.player.id)}
+    >
         <div className={Styles.ImageContainer}>
             <img
                 src={image_url}

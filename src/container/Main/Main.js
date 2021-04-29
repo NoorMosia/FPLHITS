@@ -17,13 +17,15 @@ const Main = () => {
     const [currentPage, setCurrentPage] = useState("squad");
     const [squadTransferable, setSquadTransferable] = useState("All");
 
-
     //for swopping bech player for a player in the squad
     const [selectedBenchPlayer, setSelectedBenchPlayer] = useState({})
     const [selectedStartingPlayer, setSelectedStartingPlayer] = useState({})
 
     // Squad transfers
     const [selectedSquadPlayer, setSelectedSquadPlayer] = useState({})
+    const [selectedPlayerToTransferIN, setSelectedPlayerToTransferIN] = useState({})
+    console.log(userData);
+
 
     const swop = (benched, starting) => {
         let newUserData = { ...userData }
@@ -139,14 +141,13 @@ const Main = () => {
         />
     }
 
-    console.log(squadTransferable);
-
     let RightSideContent;
     if (currentPage === "squad") {
         RightSideContent = <TransferPane
             players={apiData}
             squadTransferable={squadTransferable}
             setSquadTransferable={setSquadTransferable}
+            setSelectedPlayerToTransferIN={setSelectedPlayerToTransferIN}
         />
     } else {
         RightSideContent = <UserInfoPane />
